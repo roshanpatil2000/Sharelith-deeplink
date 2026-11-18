@@ -84,3 +84,4 @@ body:has(.policy) { place-items: start center; }
 .policy ul { margin: 0 0 16px; padding-left: 20px; color: var(--text-secondary); }
 .policy li { margin-bottom: 6px; }
 .policy strong { color: var(--text); }
+.policy a { color: var(--primary); }
