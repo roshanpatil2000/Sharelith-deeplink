@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.sharelith.app",
+      "sha256_cert_fingerprints": [
+        "DE:1A:6E:3C:68:AF:21:39:16:3F:D5:5A:0D:C9:51:FE:80:6A:A6:16:25:A5:1F:A6:04:B0:3E:8B:08:BD:7A:73"
+      ]
+    }
+  }
+]
