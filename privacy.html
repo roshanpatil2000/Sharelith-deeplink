@@ -12,13 +12,13 @@
 <body>
   <main class="card policy">
     <h1>Privacy policy</h1>
-    <p class="hint">Last updated 18 November 2026</p>
+    <p class="hint">Last updated 20 November 2026</p>
 
     <p>Sharelith helps you split expenses with friends and keep track of who owes whom. This policy explains what
       information we collect when you use the Sharelith app and website, why we collect it, who it's shared with, and
       the choices you have.</p>
 
-    <p>Some parts of this policy cover features we're adding: analytics, ads and a paid Pro subscription. They're
+    <p>Some parts of this policy cover features we're still adding: analytics and a paid Pro subscription. They're
       marked "when available". This policy will be updated before anything new is collected.</p>
 
     <h2>Information you give us</h2>
@@ -49,14 +49,26 @@
       <li><strong>Usage analytics (when available):</strong> how the app is used, such as which screens are opened and
         which features are used, along with device and app details and an app instance identifier. We use this to
         understand what's useful and what to improve.</li>
-      <li><strong>Advertising (when available):</strong> to show ads, our ad partner may collect your device's
-        advertising ID, IP address, approximate location derived from it, and how you interact with ads.</li>
+      <li><strong>Advertising:</strong> to show ads, our ad partner may collect your device's advertising ID, IP
+        address, approximate location derived from it, and how you interact with ads.</li>
+      <li><strong>Sign-in details:</strong> each time you sign in, the time, your device model, operating system and
+        app version, your IP address and an approximate location (city, region and country) worked out from that IP
+        address. See "Sign-in security" below.</li>
     </ul>
     <p>We don't access your contacts, photos (other than one you choose as your profile photo) or precise location.
     </p>
 
-    <h2>Ads (when available)</h2>
-    <p>The free version of Sharelith may show ads, served by a third-party ad network. Where the law requires it,
+    <h2>Sign-in security</h2>
+    <p>Sharelith stays signed in on one device at a time. When you sign in on a new device, your other devices are
+      signed out and get a notification saying so.</p>
+    <p>After every sign-in we email you a sign-in alert with the details listed above, so you can spot a sign-in that
+      wasn't you and reset your password. To find the approximate location, we send only the IP address to our
+      location provider (ipinfo.io); the location is estimated and may not be exact. We use these details to send the
+      alert and don't keep them ourselves; our sign-in provider keeps its own security logs of sign-ins, including IP
+      addresses.</p>
+
+    <h2>Ads</h2>
+    <p>The free version of Sharelith shows ads, served by a third-party ad network. Where the law requires it,
       we'll ask for your consent before showing personalised ads; otherwise you'll see non-personalised ads based on
       context. You can reset or turn off your advertising ID in your device's settings at any time. Ads never use
       your expenses, balances or the people you share them with.</p>
@@ -81,10 +93,10 @@
       </li>
       <li>To send account emails: confirming your email, resetting your password, telling you when someone adds you.
       </li>
-      <li>To keep the app working and secure: fix crashes, prevent abuse and limit spam, such as reminders to the same
-        person.</li>
+      <li>To keep the app working and secure: fix crashes, prevent abuse, limit spam (such as reminders to the same
+        person), keep you signed in on one device at a time and email you an alert after each sign-in.</li>
       <li>To improve the app, using analytics when available.</li>
-      <li>To show ads in the free version and provide Pro features to subscribers, when available.</li>
+      <li>To show ads in the free version, and to provide Pro features to subscribers when available.</li>
     </ul>
     <p>We don't sell your personal information.</p>
 
@@ -100,9 +112,11 @@
       <li><strong>Google Firebase:</strong> Cloud Messaging delivers notifications; Crashlytics receives crash
         reports; Performance Monitoring measures speed; Remote Config delivers app settings; App Distribution sends
         test versions to testers who sign up for them.</li>
-      <li><strong>Mailtrap:</strong> sends account emails.</li>
+      <li><strong>Mailtrap:</strong> sends account emails and sign-in alerts.</li>
+      <li><strong>ipinfo.io:</strong> estimates an approximate location from the IP address of a sign-in, for the
+        sign-in alert. It receives only the IP address.</li>
       <li><strong>Vercel:</strong> hosts this website and the links in our emails.</li>
-      <li><strong>Google AdMob (when available):</strong> shows ads in the free version. Where the law requires it,
+      <li><strong>Google AdMob:</strong> shows ads in the free version. Where the law requires it,
         Google's consent form asks before ads are personalised; see <a
           href="https://policies.google.com/technologies/partner-sites">how Google uses information from apps that use
           its services</a>.</li>
@@ -114,7 +128,8 @@
 
     <h2>On your device</h2>
     <p>Your sign-in session is kept in the device's secure storage (Keychain on iOS, Keystore on Android). A copy of
-      your recent data is cached on the device so the app opens quickly; it's removed when you log out.</p>
+      your recent data is cached on the device so the app opens quickly. The cache is encrypted (AES-256) with a key
+      kept in that secure storage, and it's removed when you log out.</p>
 
     <h2>How long we keep it</h2>
     <p>We keep your account information while your account is open. Crash reports are kept for up to 90 days and
@@ -142,8 +157,8 @@
       believe a child has given us information, contact us and we'll delete it.</p>
 
     <h2>Changes</h2>
-    <p>If this policy changes, we'll update the date above. For significant changes, such as when analytics, ads or
-      Pro are added, we'll tell you in the app before they take effect.</p>
+    <p>If this policy changes, we'll update the date above. For significant changes, such as when analytics or Pro
+      are added, we'll tell you in the app before they take effect.</p>
 
     <p>Using Sharelith is also subject to our <a href="/terms">Terms &amp; Conditions</a>.</p>
 
