@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta name="robots" content="noindex">
+  <title>You’re invited to Sharelith</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="card">
+    <div class="logo" aria-hidden="true">S</div>
+    <h1 id="title">You’re invited to Sharelith</h1>
+    <p id="message">Open the app to accept: you’ll become friends, and join the group if this is a group invite.</p>
+    <a id="open" class="button" href="sharelith://invite">Open Sharelith</a>
+    <p class="hint">
+      Don’t have Sharelith yet? Install it, sign up, then open this link again.
+    </p>
+  </main>
+  <script>
+    (function () {
+      // /invite/<token> → sharelith://invite/<token>. Only the token is passed on.
+      var match = location.pathname.match(/^\/invite\/([A-Za-z0-9_-]{16,64})\/?$/);
+      if (!match) {
+        document.getElementById('title').textContent = 'This invite link isn’t complete';
+        document.getElementById('message').textContent = 'Ask your friend to send it again.';
+        document.getElementById('open').hidden = true;
+        return;
+      }
+      var target = 'sharelith://invite/' + match[1];
+      document.getElementById('open').setAttribute('href', target);
+      // Try to open the app straight away; the button works if this is blocked.
+      window.location.replace(target);
+    })();
+  </script>
+</body>
+</html>

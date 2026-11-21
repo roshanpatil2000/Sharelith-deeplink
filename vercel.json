@@ -1,6 +1,12 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/invite/:token",
+      "destination": "/invite"
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
@@ -21,6 +27,15 @@
     },
     {
       "source": "/auth/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        }
+      ]
+    },
+    {
+      "source": "/invite/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
