@@ -12,25 +12,62 @@
   <main class="card">
     <div class="logo" aria-hidden="true">S</div>
     <h1 id="title">You’re invited to Sharelith</h1>
-    <p id="message">Open the app to accept: you’ll become friends, and join the group if this is a group invite.</p>
-    <a id="open" class="button" href="sharelith://invite">Open Sharelith</a>
-    <p class="hint">
-      Don’t have Sharelith yet? Install it, sign up, then open this link again.
-    </p>
+    <p id="message">Accept to become friends, and join the group if this is a group invite.</p>
+    <a id="open" class="button" href="sharelith://invite">I have Sharelith: open it</a>
+    <div id="install">
+      <h2>New to Sharelith?</h2>
+      <ol class="steps">
+        <li>Install Sharelith.</li>
+        <li>Open it and sign up.</li>
+        <li id="last-step">Tap the invite link in your friend’s message again.</li>
+      </ol>
+      <a id="store" class="button secondary" href="#" hidden>Get Sharelith</a>
+    </div>
   </main>
   <script>
     (function () {
+      // Fill these in once Sharelith is listed in each store; until then
+      // no store button is shown and the steps alone explain what to do.
+      var PLAY_URL = ''; // 'https://play.google.com/store/apps/details?id=com.sharelith.app'
+      var APP_STORE_URL = ''; // 'https://apps.apple.com/app/id…'
+
+      var $ = function (id) { return document.getElementById(id); };
       // /invite/<token> → sharelith://invite/<token>. Only the token is passed on.
       var match = location.pathname.match(/^\/invite\/([A-Za-z0-9_-]{16,64})\/?$/);
       if (!match) {
-        document.getElementById('title').textContent = 'This invite link isn’t complete';
-        document.getElementById('message').textContent = 'Ask your friend to send it again.';
-        document.getElementById('open').hidden = true;
+        $('title').textContent = 'This invite link isn’t complete';
+        $('message').textContent = 'Ask your friend to send it again.';
+        $('open').hidden = true;
+        $('install').hidden = true;
         return;
       }
-      var target = 'sharelith://invite/' + match[1];
-      document.getElementById('open').setAttribute('href', target);
-      // Try to open the app straight away; the button works if this is blocked.
+      var token = match[1];
+      var target = 'sharelith://invite/' + token;
+      $('open').setAttribute('href', target);
+
+      var ua = navigator.userAgent;
+      var android = /Android/i.test(ua);
+      var ios = /iPhone|iPad|iPod/i.test(ua) ||
+        (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+      var store = null;
+      if (android && PLAY_URL) {
+        // The Play Store hands this to the app on first launch, so the invite
+        // is used after sign-up without opening the link again.
+        store = PLAY_URL + (PLAY_URL.indexOf('?') < 0 ? '?' : '&') +
+          'referrer=' + encodeURIComponent('invite=' + token);
+        $('store').textContent = 'Get it on Google Play';
+        $('last-step').textContent =
+          'You’ll be added as friends as soon as you’ve signed up.';
+      } else if (ios && APP_STORE_URL) {
+        store = APP_STORE_URL;
+        $('store').textContent = 'Download on the App Store';
+      }
+      if (store) {
+        $('store').setAttribute('href', store);
+        $('store').hidden = false;
+      }
+
+      // Try to open the app straight away; if it isn't installed the page stays.
       window.location.replace(target);
     })();
   </script>
